@@ -1,9 +1,6 @@
 <p align="center">
   <img src="docs/logo.png" alt="boredload logo" width="220" />
 </p>
-
-# boredload
-
 **A tiny Canvas 2D minigame you show during loading states — instead of a boring spinner.**
 
 [![npm version](https://img.shields.io/npm/v/boredload.svg)](https://www.npmjs.com/package/boredload)
