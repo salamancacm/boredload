@@ -1,6 +1,6 @@
 {
   "name": "boredload",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A tiny, framework-agnostic Canvas 2D minigame you show during loading states instead of a boring spinner.",
   "type": "module",
   "main": "./dist/index.cjs",
