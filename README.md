@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/logo.png" alt="boredload logo" width="220" />
+</p>
+
 # boredload
 
 **A tiny Canvas 2D minigame you show during loading states — instead of a boring spinner.**
