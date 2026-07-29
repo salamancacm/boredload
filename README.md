@@ -1,13 +1,14 @@
 <p align="center">
   <img src="docs/logo.png" alt="boredload logo" width="220" />
 </p>
-**A tiny Canvas 2D minigame you show during loading states — instead of a boring spinner.**
 
 [![npm version](https://img.shields.io/npm/v/boredload.svg)](https://www.npmjs.com/package/boredload)
 [![bundle size](https://img.shields.io/badge/gzip-%3C15kb-brightgreen)](https://www.npmjs.com/package/boredload)
 [![license](https://img.shields.io/npm/l/boredload.svg)](./LICENSE)
 [![CI](https://github.com/salamancacm/boredload/actions/workflows/ci.yml/badge.svg)](https://github.com/salamancacm/boredload/actions/workflows/ci.yml)
 [![Ko-fi](https://img.shields.io/badge/support-ko--fi-ff5e5b)](https://ko-fi.com/salamancacm)
+
+**A tiny Canvas 2D minigame you show during loading states — instead of a boring spinner.**
 
 ![Demo](docs/demo.gif)
 
