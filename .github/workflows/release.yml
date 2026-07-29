@@ -37,5 +37,7 @@ jobs:
       - name: Check bundle size
         run: npm run size
 
-      - name: Publish to npm (OIDC provenance)
+      - name: Publish to npm (token auth, GitHub OIDC provenance)
         run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
