@@ -1,0 +1,8 @@
+main {
+  font-family: system-ui, sans-serif;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}

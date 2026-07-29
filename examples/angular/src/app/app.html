@@ -1,0 +1,17 @@
+<main>
+  <h1>boredload — Angular example</h1>
+  <button type="button" (click)="simulateLoad()">Simulate 3s loading</button>
+
+  <div
+    boredload
+    [isLoading]="isLoading()"
+    [threshold]="1000"
+    [minPlayMs]="2500"
+    [maxPlayMs]="15000"
+    (exit)="onExit()"
+  ></div>
+
+  @if (!isLoading() && dismissed()) {
+    <p>Loaded content goes here.</p>
+  }
+</main>

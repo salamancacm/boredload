@@ -1,0 +1,12 @@
+src
+examples
+scripts
+.github
+.eslintrc.cjs
+.prettierrc
+tsconfig.json
+tsup.config.ts
+vitest.config.ts
+coverage
+*.log
+.DS_Store

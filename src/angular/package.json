@@ -1,0 +1,9 @@
+{
+  "name": "boredload-angular",
+  "version": "0.1.0",
+  "peerDependencies": {
+    "boredload": "0.1.0",
+    "@angular/core": ">=15.0.0",
+    "@angular/common": ">=15.0.0"
+  }
+}

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>boredload — vanilla example</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b1120;
+        --card: #131c30;
+        --border: #232f47;
+        --text: #e2e8f0;
+        --muted: #8b98b2;
+        --accent: #ff5470;
+        --accent-2: #38bdf8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          sans-serif;
+        background:
+          radial-gradient(circle at 20% -10%, #1c2740 0%, transparent 55%),
+          var(--bg);
+        color: var(--text);
+        display: flex;
+        justify-content: center;
+        padding: 56px 20px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 480px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 32px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.3;
+      }
+
+      p.lede {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .primary-button {
+        appearance: none;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 20px;
+        font: inherit;
+        font-weight: 700;
+        font-size: 14px;
+        color: #0b1120;
+        background: linear-gradient(135deg, var(--accent-2), #7dd3fc);
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          filter 0.15s ease;
+      }
+
+      .primary-button:hover {
+        filter: brightness(1.08);
+        transform: translateY(-1px);
+      }
+
+      .primary-button:active {
+        transform: translateY(0);
+        filter: brightness(0.95);
+      }
+
+      .stage-frame {
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: #0d1526;
+        padding: 16px;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* boredload auto-detects these — no `theme` prop passed in main.ts. */
+        --boredload-player: #facc15;
+        --boredload-obstacle: #a855f7;
+        --boredload-accent: var(--accent-2);
+      }
+
+      /* Restyle boredload's own elements to match this page's theme. */
+      .boredload-canvas {
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .boredload-continue {
+        font-family: inherit !important;
+      }
+
+      #status {
+        margin: 0;
+        min-height: 18px;
+        font-size: 13px;
+        color: var(--accent-2);
+      }
+
+      #content {
+        border-radius: 12px;
+        border: 1px dashed var(--border);
+        padding: 16px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      footer {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      footer code {
+        color: var(--text);
+        background: #0d1526;
+        padding: 1px 5px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div>
+        <h1>Turn dead loading time into a mini-game</h1>
+        <p class="lede">
+          Click below to simulate a 3s load. Past ~1s the runner appears — jump obstacles with
+          Space or a tap. When the load finishes, you decide when to leave.
+        </p>
+      </div>
+
+      <button id="reload" class="primary-button">Simulate 3s loading</button>
+
+      <div class="stage-frame">
+        <div id="loading-slot"></div>
+      </div>
+
+      <p id="status"></p>
+      <div id="content" hidden>Loaded content goes here.</div>
+
+      <footer>
+        The button's default label is English ("Continue →") — this demo overrides it via
+        <code>continueLabel: "Let's go →"</code>, but any text or locale is up to you. The runner's
+        colors also come from this page's own CSS (<code>--boredload-player</code>,
+        <code>--boredload-obstacle</code>) — no <code>theme</code> prop passed in <code>main.ts</code>.
+      </footer>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

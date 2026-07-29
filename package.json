@@ -1,0 +1,130 @@
+{
+  "name": "boredload",
+  "version": "0.1.0",
+  "description": "A tiny, framework-agnostic Canvas 2D minigame you show during loading states instead of a boring spinner.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./react": {
+      "import": {
+        "types": "./dist/react/index.d.ts",
+        "default": "./dist/react/index.mjs"
+      },
+      "require": {
+        "types": "./dist/react/index.d.cts",
+        "default": "./dist/react/index.cjs"
+      }
+    },
+    "./angular": {
+      "types": "./dist/angular/types/boredload-angular.d.ts",
+      "default": "./dist/angular/fesm2022/boredload-angular.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup && npm run build:angular",
+    "build:angular": "ng-packagr -p src/angular/ng-package.json -c src/angular/tsconfig.lib.json",
+    "size": "node ./scripts/check-bundle-size.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext .ts,.tsx",
+    "prepublishOnly": "npm run build && npm run size"
+  },
+  "keywords": [
+    "loading",
+    "spinner",
+    "canvas",
+    "minigame",
+    "game",
+    "react",
+    "angular",
+    "ui",
+    "loading-state",
+    "dino"
+  ],
+  "author": "Carlos Salamanca (Programantum)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/salamancacm/boredload.git"
+  },
+  "bugs": {
+    "url": "https://github.com/salamancacm/boredload/issues"
+  },
+  "homepage": "https://github.com/salamancacm/boredload#readme",
+  "funding": {
+    "type": "ko-fi",
+    "url": "https://ko-fi.com/salamancacm"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=15.0.0",
+    "@angular/core": ">=15.0.0",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "@angular/core": {
+      "optional": true
+    },
+    "@angular/common": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@angular/common": "^21.2.18",
+    "@angular/compiler": "^21.2.18",
+    "@angular/compiler-cli": "^21.2.18",
+    "@angular/core": "^21.2.18",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.1",
+    "@types/node": "^20.14.15",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@vitest/coverage-v8": "^2.0.5",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "jsdom": "^24.1.1",
+    "ng-packagr": "^21.2.5",
+    "prettier": "^3.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "rxjs": "^7.8.1",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
