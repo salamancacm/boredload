@@ -21,6 +21,13 @@ configurable threshold — and instead of yanking it away the instant loading fi
 player keep playing (to see how far they get) until they choose to continue or a safety timeout
 kicks in.
 
+To be clear: this doesn't replace fixing your load time — always do that first. It's for the waits
+that are still real *after* you've optimized: a cold start on serverless, a large file the user
+just uploaded, a slow third-party API, a bad connection on an old phone. The default threshold is
+1.5s specifically so it never shows up on fast loads. It's also a good fit for longer background
+processes with a web UI attached — a deploy status page, a migration progress screen in an admin
+panel, a background job.
+
 - **Framework-agnostic core.** Pure TypeScript, Canvas 2D, zero runtime dependencies.
 - **Optional React wrapper.** `boredload/react` gives you a hook and a drop-in component.
 - **Optional Angular wrapper.** `boredload/angular` gives you a standalone `[boredload]` directive.
