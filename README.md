@@ -40,8 +40,11 @@ panel, a background job.
 
 ## Features
 
-- Canvas 2D dino-runner-style minigame (original visuals — not a Chrome clone)
-- Keyboard (Space / ArrowUp) and touch/pointer input, with press-to-retry on game over
+- Two built-in Canvas 2D minigames (original visuals — neither is a clone of anything):
+  - `dino-runner` (default) — jump over obstacles with Space / ArrowUp / tap.
+  - `orbit-dodger` — dodge falling obstacles by moving left/right with Arrow keys or WASD, or by
+    dragging/holding a pointer or finger — the ship follows it directly.
+- Keyboard and touch/pointer input, with press-to-retry on game over
 - DPR-aware canvas scaling
 - Configurable `threshold` (delay before the game appears), `minPlayMs` (minimum time before the
   player can leave), and `maxPlayMs` (safety cap that auto-dismisses if they never do)
@@ -218,7 +221,7 @@ class GameEngine {
 
 | Option               | Type                      | Default           | Description                                                                 |
 | -------------------- | ------------------------- | ------------------ | ---------------------------------------------------------------------------- |
-| `game`                | `string`                  | `'dino-runner'`    | Registered game id                                                          |
+| `game`                | `string`                  | `'dino-runner'`    | Registered game id — built in: `'dino-runner'`, `'orbit-dodger'`            |
 | `threshold`           | `number`                  | `1500`             | Ms of loading before the game appears                                      |
 | `minPlayMs`           | `number`                  | `3000`             | Ms the game must stay visible (from when it appeared) before the player can leave |
 | `maxPlayMs`           | `number`                  | `30000`            | Ms the "Continue" affordance waits for a manual click before auto-dismissing |
@@ -330,6 +333,10 @@ registerGame('my-game', () => myGame);
 ```
 
 Then pass `game: 'my-game'` in your config.
+
+`InputState` also carries optional `heldDirection` (-1/0/1, from Arrow keys / WASD) and `pointerX`
+(canvas-local logical-pixel X of an actively-down pointer/touch, for "follow the pointer" style
+control) — see `orbit-dodger`'s source for a reference implementation that uses both.
 
 ## Browser Support
 

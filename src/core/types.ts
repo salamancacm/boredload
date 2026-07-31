@@ -7,6 +7,10 @@ export interface Viewport {
 export interface InputState {
   primaryActionDown: boolean;
   primaryActionPressed: boolean;
+  /** -1 = left held, 1 = right held, 0 = neither. Keyboard-only (Arrow keys / WASD), always defined. */
+  heldDirection?: -1 | 0 | 1;
+  /** Canvas-local logical-pixel X of an actively-down pointer/touch, undefined when nothing is down. */
+  pointerX?: number;
 }
 
 export interface Theme {

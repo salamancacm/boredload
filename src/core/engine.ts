@@ -60,7 +60,7 @@ export class GameEngine<TState = unknown> {
     }
     this.ctx = ctx;
 
-    this.input = new InputController(this.canvas);
+    this.input = new InputController(this.canvas, this.viewport.width);
     this.game = options.game as Game<TState>;
     this.persistHighScore = options.persistHighScore ?? true;
     this.highScoreKey = options.highScoreKey ?? `boredload:${this.game.id}`;
@@ -115,6 +115,7 @@ export class GameEngine<TState = unknown> {
   resize(width: number, height: number): void {
     if (this.destroyed) return;
     this.viewport = resizeCanvasToDisplaySize(this.canvas, width, height, this.viewport.dpr);
+    this.input.setLogicalWidth(width);
   }
 
   setTheme(theme: Partial<Theme>): void {

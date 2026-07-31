@@ -16,6 +16,7 @@ export { resizeCanvasToDisplaySize, observeResize } from './core/canvas';
 export { createGame, registerGame, hasGame } from './games/registry';
 export type { GameFactory } from './games/registry';
 export { DinoGame } from './games/dino';
+export { OrbitDodgerGame } from './games/orbit-dodger';
 export { getHighScore, setHighScore } from './core/highScore';
 export { resolveAutoTheme } from './core/autoTheme';
 export { prefersReducedMotion } from './core/motionPreference';

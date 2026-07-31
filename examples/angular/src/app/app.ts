@@ -10,6 +10,8 @@ import { BoredloadGameDirective } from 'boredload/angular';
 export class App {
   protected readonly isLoading = signal(true);
   protected readonly dismissed = signal(false);
+  // Try ?game=orbit-dodger in the URL to switch minigames.
+  protected readonly game = new URLSearchParams(window.location.search).get('game') ?? undefined;
 
   protected simulateLoad(): void {
     this.dismissed.set(false);
