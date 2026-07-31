@@ -7,7 +7,11 @@ const button = document.getElementById('reload') as HTMLButtonElement;
 
 const CONTINUE_LABEL = "Let's go →";
 
+// Try ?game=orbit-dodger in the URL to switch minigames.
+const gameParam = new URLSearchParams(location.search).get('game');
+
 const game = mount(slot, {
+  game: gameParam ?? 'dino-runner',
   threshold: 1000,
   minPlayMs: 2500,
   maxPlayMs: 15000,

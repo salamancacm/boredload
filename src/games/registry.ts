@@ -1,9 +1,13 @@
 import type { Game } from '../core/types';
 import { DinoGame } from './dino';
+import { OrbitDodgerGame } from './orbit-dodger';
 
 export type GameFactory = () => Game;
 
-const registry = new Map<string, GameFactory>([['dino-runner', () => new DinoGame()]]);
+const registry = new Map<string, GameFactory>([
+  ['dino-runner', () => new DinoGame()],
+  ['orbit-dodger', () => new OrbitDodgerGame()],
+]);
 
 /** Registers a custom game factory under `id`, enabling `game: id` in config. */
 export function registerGame(id: string, factory: GameFactory): void {

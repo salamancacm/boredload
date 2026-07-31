@@ -1,21 +1,8 @@
+import { intersects, type AABB } from '../shared/collision';
 import type { Obstacle, Player } from './state';
 
-export interface AABB {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-}
-
-/** Standard axis-aligned bounding box overlap test. */
-export function intersects(a: AABB, b: AABB): boolean {
-  return (
-    a.x < b.x + b.width &&
-    a.x + a.width > b.x &&
-    a.y < b.y + b.height &&
-    a.y + a.height > b.y
-  );
-}
+export type { AABB } from '../shared/collision';
+export { intersects } from '../shared/collision';
 
 /** Player hitbox shrunk to ~85% for a slightly more forgiving feel. */
 const PLAYER_HITBOX_SCALE = 0.85;
