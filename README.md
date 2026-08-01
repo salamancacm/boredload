@@ -10,7 +10,9 @@
 
 **A tiny Canvas 2D minigame you show during loading states — instead of a boring spinner.**
 
-![Demo](docs/demo.gif)
+| `dino-runner` (default) | `orbit-dodger` |
+| --- | --- |
+| ![dino-runner demo](docs/demo.gif) | ![orbit-dodger demo](docs/demo-orbit.gif) |
 
 ## Why boredload
 
